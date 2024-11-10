@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scilla Cariddi Rental Boat</title>
+    <style>
+        :root {
+            --background-color: black;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--background-color);
+            isolation: isolate;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            position: absolute;
+        }
+        #text {
+            position: absolute;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas3d" class="canvas"></canvas>
+    <div id="text">SCILLA CARIDDI RENTAL BOAT</div>
+
+    <script type="module">
+        import { Application } from "https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.9.20/build/runtime.min.js";
+
+        const canvas = document.getElementById('canvas3d');
+        const app = new Application(canvas);
+
+        app.load('https://prod.spline.design/iy8jc6GYDLKKc7Fg/scene.splinecode').then(() => {
+            // Once the 3D scene is loaded, show the text
+            const textElement = document.getElementById('text');
+            setTimeout(() => {
+                textElement.style.opacity = 1;
+            }, 2000); // Delay the appearance by 2 seconds after loading the scene
+        });
+    </script>
+</body>
+</html>
